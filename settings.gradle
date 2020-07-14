@@ -1,0 +1,13 @@
+rootProject.name = 'Base'
+include 'jvm-test'
+include 'sharding-table'
+include 'netty-example'
+include 'design23'
+include 'netty-im'
+include 'netty-im:client'
+findProject(':netty-im:client')?.name = 'client'
+include 'netty-im:server'
+findProject(':netty-im:server')?.name = 'server'
+include 'netty-im:common'
+findProject(':netty-im:common')?.name = 'common'
+

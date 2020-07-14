@@ -1,0 +1,5 @@
+netty:
+  hostName: 127.0.0.1
+  port: 8090
+server:
+  port: 8082
