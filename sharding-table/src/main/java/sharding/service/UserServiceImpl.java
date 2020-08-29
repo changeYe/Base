@@ -1,18 +1,18 @@
 package sharding.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sharding.po.User;
 import sharding.repository.UserRepository;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Override
 	public List<User> list() {
 		return userRepository.list();
@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findById(Long id) {
-		return userRepository.findById(id);
+	public User findById(Long id,Integer sex) {
+		return userRepository.findById(id,sex);
 	}
 
 	@Override

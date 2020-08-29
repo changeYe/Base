@@ -1,9 +1,9 @@
 package sharding.service;
 
 
-import sharding.po.User;
-
 import java.util.List;
+
+import sharding.po.User;
 
 public interface UserService {
 
@@ -11,7 +11,7 @@ public interface UserService {
 	
 	Long add(User user);
 	
-	User findById(Long id);
+	User findById(Long id,Integer sex);
 	
 	User findByName(String name);
 	

@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sharding.repository.UserRepository">
-    
+
     <resultMap id="baseResultMap" type="sharding.po.User">
         <result column="id" property="id" jdbcType="INTEGER" />
-        <result column="city" property="city" jdbcType="VARCHAR" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
     </resultMap>
-    
+
     <insert id="addUser">
         INSERT INTO user (
-          id, city, name
+          id, user_id,user_name,sex
         )
         VALUES (
         #{id,jdbcType=INTEGER},
-        #{city,jdbcType=VARCHAR},
-        #{name,jdbcType=VARCHAR}
+        #{userId,jdbcType=INTEGER},
+        #{userName,jdbcType=VARCHAR},
+        #{sex,jdbcType=INTEGER}
         )
     </insert>
-   
+
     <select id="list" resultMap="baseResultMap">
         SELECT u.* FROM user u
     </select>
-	
+
 	<select id="findById" resultMap="baseResultMap">
         SELECT u.* FROM user u WHERE u.id=#{id,jdbcType=INTEGER}
+        and u.sex = #{sex}
     </select>
-    
+
     <select id="findByName" resultMap="baseResultMap">
-        SELECT u.* FROM user u WHERE u.name=#{name,jdbcType=VARCHAR}
+        SELECT u.* FROM user u WHERE u.user_name=#{name,jdbcType=VARCHAR}
     </select>
-    
+
 </mapper>

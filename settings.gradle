@@ -10,4 +10,6 @@ include 'netty-im:server'
 findProject(':netty-im:server')?.name = 'server'
 include 'netty-im:common'
 findProject(':netty-im:common')?.name = 'common'
+include 'spring-all'
+include 'sharding-jdbc'
 

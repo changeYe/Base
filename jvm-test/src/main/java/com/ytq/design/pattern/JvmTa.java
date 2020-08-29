@@ -13,11 +13,15 @@ public class JvmTa {
     public static void main(String[] args) {
         System.out.println("aa");
 
+        String aa = "a" + "b" + "c";
         System.out.println("HelloGC!");
         List list = new LinkedList();
-        for(;;) {
-            byte[] b = new byte[1024*1024];
-            list.add(b);
+
+        String str = "aa";
+        String dd = str + "bb" + "cc";
+        for (int i = 0; i < 10; i++) {
+            str += "" + i;
         }
+
     }
 }

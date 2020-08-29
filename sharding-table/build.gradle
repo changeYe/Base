@@ -14,7 +14,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     runtime 'mysql:mysql-connector-java:5.1.46'
 //    compile 'com.baomidou:mybatis-plus-boot-starter:3.0.5'
-    compile 'com.alibaba:druid-spring-boot-starter:1.1.16'
+    compile 'com.alibaba:druid:1.1.19'
     compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
-    compile 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.0.0-RC1'
+    compile 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
 }

@@ -1,9 +1,9 @@
 package sharding.algorithm;
 
+import java.util.Collection;
+
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
-
-import java.util.Collection;
 
 /**
  * 自定义分片算法
@@ -23,10 +23,19 @@ import java.util.Collection;
  */
 public class MyPreciseShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
 
+    /**
+     *
+     * @param availableTargetNames 所有可用的物理表名，也就是分片键将值分布到哪个表中
+     * @param shardingValue 分片键的值
+     * @return
+     */
 	@Override
 	public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<Long> shardingValue) {
+	    if(shardingValue.getValue()!= null && shardingValue.getValue() > 1000){
+            return shardingValue.getLogicTableName();
+        }
 		for (String tableName : availableTargetNames) {
-			if (tableName.endsWith(shardingValue.getValue() % 4 + "")) {
+			if (tableName.endsWith(shardingValue.getValue() % 2 + "")) {
 				return tableName;
 			}
 		}
